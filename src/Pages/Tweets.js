@@ -1,25 +1,37 @@
-// TODO : useState를 react로 부터 import 합니다.
-import React /* TODO */ from 'react';
+import React, { useState } from 'react'; // ✅ useState import
 import Footer from '../Footer';
 import Tweet from '../Components/Tweet';
 import './Tweets.css';
 import dummyTweets from '../static/dummyData';
 
 const Tweets = () => {
-  // TODO : 새로 트윗을 작성하고 전송할 수 있게 useState를 적절히 활용하세요.
+  // ✅ 상태 추가
+  const [tweets, setTweets] = useState(dummyTweets);
+  const [username, setUsername] = useState('Bob');
+  const [message, setMessage] = useState('');
 
-  const handleButtonClick = (event) => {
-    const tweet = {};
-    // TODO : Tweet button 엘리먼트 클릭시 작동하는 함수를 완성하세요.
-    // 트윗 전송이 가능하게 작성해야 합니다.
+  // ✅ 트윗 버튼 클릭 시 트윗 추가
+  const handleButtonClick = () => {
+    const newTweet = {
+      id: tweets.length + 1,
+      username,
+      content: message,
+      createdAt: new Date().toLocaleString(),
+      picture: 'https://randomuser.me/api/portraits/men/98.jpg',
+    };
+
+    setTweets([newTweet, ...tweets]); // 새 트윗을 위로 추가
+    setMessage(''); // 메시지 초기화
   };
 
+  // ✅ 유저 입력 변경 핸들러
   const handleChangeUser = (event) => {
-    // TODO : Tweet input 엘리먼트에 입력 시 작동하는 함수를 완성하세요.
+    setUsername(event.target.value);
   };
 
+  // ✅ 트윗 내용 입력 핸들러
   const handleChangeMsg = (event) => {
-    // TODO : Tweet textarea 엘리먼트에 입력 시 작동하는 함수를 완성하세요.
+    setMessage(event.target.value);
   };
 
   return (
@@ -34,30 +46,45 @@ const Tweets = () => {
               <div className="tweetForm__input">
                 <input
                   type="text"
-                  defaultValue="Bob"
+                  value={username}
+                  onChange={handleChangeUser}
                   placeholder="your username here.."
                   className="tweetForm__input--username"
-                ></input>
-                TODO : 트윗을 작성할 수 있는 textarea 엘리먼트를 작성하세요.
+                />
+                {/* ✅ textarea 엘리먼트 */}
+                <textarea
+                  value={message}
+                  onChange={handleChangeMsg}
+                  placeholder="무슨 일이 일어나고 있나요?"
+                  className="tweetForm__input--message"
+                ></textarea>
               </div>
               <div className="tweetForm__count" role="status">
                 <span className="tweetForm__count__text">
-                  {/* TODO : 트윗 총 개수를 보여줄 수 있는 Counter를 작성하세요. */}
-                  {'total: '}
+                  total: {tweets.length}
                 </span>
               </div>
             </div>
             <div className="tweetForm__submit">
               <div className="tweetForm__submitIcon"></div>
-              {/* TODO : 작성한 트윗을 전송할 수 있는 button 엘리먼트를 작성하세요. */}
+              {/* ✅ 트윗 전송 버튼 */}
+              <button
+                className="tweetForm__submitButton"
+                onClick={handleButtonClick}
+                disabled={!message.trim()}
+              >
+                Tweet
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="tweet__selectUser"></div>
+
       <ul className="tweets">
-        {/* TODO : 하나의 트윗이 아니라, 주어진 트윗 목록(dummyTweets) 갯수에 맞게 보여줘야 합니다. */}
-        <Tweet tweet={dummyTweets[0]} />
+        {/* ✅ 트윗 리스트를 동적으로 렌더링 */}
+        {tweets.map((tweet) => (
+          <Tweet key={tweet.id} tweet={tweet} />
+        ))}
       </ul>
       <Footer />
     </React.Fragment>
