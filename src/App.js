@@ -16,9 +16,9 @@ const App = () => {
           <Sidebar />
           <section className="features">
             <Routes>
-              <Route path="/" element={<Tweets />} />
+              <Route path="/" element={<About />} />
+              <Route path="/tweets" element={<Tweets />} />
               <Route path="/mypage" element={<MyPage />} />
-              <Route path="/about" element={<About />} />
             </Routes>
           </section>
         </main>

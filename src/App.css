@@ -68,25 +68,41 @@ footer {
 main {
   display: flex;
   flex-direction: row;
-  max-width: 640px;
+  max-width: 1200px;
   flex: 1 0 0;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 60px;
+  min-width: 60px;
+  height: 100vh;
+  padding: 1rem 0;
+  background: #fff;
+  box-shadow: 1px 0 6px rgba(0,0,0,0.04);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  text-decoration: none;
 }
 
 .far,
 .fas {
   font-size: 2rem;
   color: var(--default-text-color);
-  padding: 1.3rem;
+  padding: 0.7rem 0;
   cursor: pointer;
 }
 
 .features {
-  width: 564px;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--main-border-color);

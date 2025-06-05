@@ -41,3 +41,111 @@
   border: 2px solid var(--mypage-component-color);
   overflow-y: scroll;
 }
+
+.mypage {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mypage__cover {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+}
+.mypage__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mypage__profileWrap {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  padding: 0 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+}
+.mypage__profileImg {
+  width: 100px;
+  height: 100px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
+  top: -30px;
+}
+.mypage__profileImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mypage__profileInfo {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.5rem;
+}
+.mypage__profileName {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.mypage__profileId {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.mypage__profileBio {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.mypage__profileStats {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.98rem;
+  color: #555;
+}
+.mypage__tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.5rem;
+  background: #fafbfc;
+}
+.mypage__tabs button {
+  flex: 1;
+  padding: 0.8rem 0;
+  background: none;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s, color 0.2s;
+}
+.mypage__tabs button.active {
+  color: #1da1f2;
+  border-bottom: 2px solid #1da1f2;
+}
+.mypage__tabs button:disabled {
+  color: #bbb;
+  cursor: not-allowed;
+}
+.mypage__tweets {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+  background: #fff;
+}

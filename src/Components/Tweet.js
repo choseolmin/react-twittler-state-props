@@ -1,11 +1,11 @@
 import React from 'react';
 import './Tweet.css';
 
-const Tweet = ({ tweet }) => {
+const Tweet = ({ tweet, onClick }) => {
   const parsedDate = new Date(tweet.createdAt).toLocaleDateString('ko-kr');
 
   return (
-    <li className="tweet" id={tweet.id}>
+    <li className="tweet" id={tweet.id} onClick={onClick} style={{ cursor: 'pointer' }}>
       <div className="tweet__profile">
         <img src={tweet.picture} alt="프로필 이미지" />
       </div>

@@ -1,0 +1,85 @@
+.sidebar__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.sidebarDetail {
+  background: #fff;
+  width: 350px;
+  min-width: 350px;
+  max-width: 90vw;
+  height: 100%;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #eee;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sidebar__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar__profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.sidebar__content {
+  flex: 1;
+}
+
+.sidebar__content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.sidebar__content p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar__date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.sidebar__delete {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sidebar__delete:hover {
+  background: #d9363e;
+} 
