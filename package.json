@@ -19,7 +19,7 @@
     ]
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false --verbose",
     "watch": "react-scripts test --verbose",
@@ -39,5 +39,17 @@
   },
   "devDependencies": {
     "resq": "^1.10.0"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choseolmin/react-twittler-state-props.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choseolmin/react-twittler-state-props/issues"
+  },
+  "homepage": ""
 }

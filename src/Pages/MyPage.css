@@ -14,7 +14,7 @@
   height: 97px;
   display: flex;
   align-items: center;
-  color:white;
+  color: white;
   background-color: var(--mypage-component-color);
 }
 
@@ -36,27 +36,24 @@
   border-radius: 100%;
 }
 
-.tweets__mypage{
+.tweets__mypage {
   flex: 1 0 80vh;
   border: 2px solid var(--mypage-component-color);
   overflow-y: scroll;
 }
 
 .mypage {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
+  background-color: #fff;
 }
 
 .mypage__cover {
   width: 100%;
-  height: 120px;
+  height: 200px;
   overflow: hidden;
-  position: relative;
 }
+
 .mypage__cover img {
   width: 100%;
   height: 100%;
@@ -64,88 +61,235 @@
 }
 
 .mypage__profileWrap {
-  display: flex;
-  align-items: flex-end;
   position: relative;
-  padding: 0 2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  z-index: 2;
+  padding: 0 16px;
+  margin-top: -60px;
 }
+
 .mypage__profileImg {
-  width: 100px;
-  height: 100px;
-  border: 4px solid #fff;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  border: 4px solid #fff;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   position: relative;
-  top: -30px;
 }
+
 .mypage__profileImg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
+
 .mypage__profileInfo {
-  margin-left: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 0.5rem;
+  margin-top: 16px;
 }
+
 .mypage__profileName {
-  font-size: 1.3rem;
+  font-size: 20px;
   font-weight: bold;
+  color: #0f1419;
 }
+
 .mypage__profileId {
-  color: #888;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+  color: #536471;
+  margin-top: 4px;
 }
+
 .mypage__profileBio {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 12px;
+  color: #0f1419;
+  line-height: 1.4;
 }
+
 .mypage__profileStats {
   display: flex;
-  gap: 1.2rem;
-  font-size: 0.98rem;
-  color: #555;
+  gap: 24px;
+  margin-top: 12px;
+  color: #536471;
 }
+
+.mypage__profileStats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mypage__profileStats b {
+  color: #0f1419;
+}
+
 .mypage__tabs {
   display: flex;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 0.5rem;
-  background: #fafbfc;
+  border-bottom: 1px solid #eff3f4;
+  margin-top: 16px;
 }
+
 .mypage__tabs button {
   flex: 1;
-  padding: 0.8rem 0;
+  padding: 16px;
   background: none;
   border: none;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #555;
+  color: #536471;
+  font-weight: 500;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: border 0.2s, color 0.2s;
+  transition: background-color 0.2s;
 }
+
+.mypage__tabs button:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
 .mypage__tabs button.active {
-  color: #1da1f2;
-  border-bottom: 2px solid #1da1f2;
+  color: #0f1419;
+  font-weight: 600;
+  border-bottom: 2px solid #1d9bf0;
 }
+
 .mypage__tabs button:disabled {
-  color: #bbb;
+  color: #536471;
   cursor: not-allowed;
+  opacity: 0.5;
 }
-.mypage__tweets {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  border: none;
+
+.mypage__tweets,
+.mypage__replies {
+  list-style: none;
   padding: 0;
-  background: #fff;
+  margin: 0;
+}
+
+.mypage__tweet,
+.mypage__reply {
+  padding: 16px;
+  border-bottom: 1px solid #eff3f4;
+  transition: background-color 0.2s;
+}
+
+.mypage__tweet:hover,
+.mypage__reply:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.mypage__tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mypage__profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mypage__tweet-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mypage__name {
+  font-weight: 600;
+  color: #0f1419;
+}
+
+.mypage__username {
+  color: #536471;
+}
+
+.mypage__tweet-content {
+  color: #0f1419;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mypage__tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  color: #536471;
+}
+
+.mypage__tweet-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.mypage__tweet-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mypage__reply-header {
+  margin-bottom: 8px;
+}
+
+.mypage__reply-to {
+  color: #536471;
+  font-size: 14px;
+}
+
+.mypage__reply-content {
+  display: flex;
+  gap: 12px;
+}
+
+.mypage__reply-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mypage__reply-details {
+  flex: 1;
+}
+
+.mypage__reply-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.mypage__reply-username {
+  font-weight: 600;
+  color: #0f1419;
+}
+
+.mypage__reply-date {
+  color: #536471;
+  font-size: 14px;
+}
+
+.mypage__reply-text {
+  color: #0f1419;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mypage__reply-parent {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #f7f9f9;
+  border-radius: 8px;
+}
+
+.mypage__reply-parent p {
+  margin: 0;
+  color: #536471;
+  font-size: 14px;
+}
+
+.mypage__empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: #536471;
+  background-color: #f7f9f9;
+  border-radius: 8px;
+  margin: 16px;
 }

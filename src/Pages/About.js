@@ -24,7 +24,7 @@ const About = () => {
           <h3>실시간 트윗</h3>
           <p>여러분의 생각을 빠르게 공유하고, 친구들과 소통하세요.</p>
         </div>
-        <div className="aboutTwittler__featureCard">
+        <div className="aboutTwittler__featureCard" style={{cursor:'pointer'}} onClick={() => navigate('/alarm')}>
           <i className="far fa-bell"></i>
           <h3>알림</h3>
           <p>관심 있는 소식과 멘션을 실시간으로 받아보세요.</p>

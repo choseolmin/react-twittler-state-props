@@ -54,9 +54,10 @@ textarea {
 }
 
 .App {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 }
 
 footer {
@@ -67,30 +68,38 @@ footer {
 
 main {
   display: flex;
-  flex-direction: row;
+  flex: 1;
   max-width: 1200px;
-  flex: 1 0 0;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 60px;
   min-width: 60px;
   height: 100vh;
-  padding: 1rem 0;
-  background: #fff;
-  box-shadow: 1px 0 6px rgba(0,0,0,0.04);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+  border-right: 1px solid #eee;
+  z-index: 1000;
 }
 
 .sidebar a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0.5rem 0;
-  text-decoration: none;
+  color: #1da1f2;
+  font-size: 24px;
+  transition: color 0.2s;
+}
+
+.sidebar a:hover {
+  color: #1991db;
 }
 
 .far,
@@ -102,9 +111,271 @@ main {
 }
 
 .features {
-  width: 1200px;
+  flex: 1;
+  margin-left: 80px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.tweetForm__container {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tweetForm__wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.tweetForm__profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.tweetForm__profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tweetForm__inputContainer {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--main-border-color);
-  flex: 1 0 0;
+  gap: 10px;
+}
+
+.tweetForm__inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tweetForm__inputWrapper--row {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tweetForm__input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tweetForm__input--username {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.tweetForm__input--message {
+  width: 100%;
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.tweetForm__submitButton {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tweetForm__submitButton:hover {
+  background-color: #1991db;
+}
+
+.tweetForm__submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.tweets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tweet {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  gap: 15px;
+}
+
+.tweet__profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.tweet__profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tweet__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tweet__userInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tweet__username {
+  font-weight: bold;
+  color: #14171a;
+}
+
+.tweet__createdAt {
+  color: #657786;
+  font-size: 14px;
+}
+
+.tweet__message {
+  color: #14171a;
+  line-height: 1.4;
+}
+
+.alarm-page {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.alarm-header {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.alarm-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.alarm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.alarm-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alarm-content {
+  display: flex;
+  gap: 5px;
+}
+
+.alarm-user {
+  font-weight: bold;
+  color: #1da1f2;
+}
+
+.alarm-time {
+  color: #657786;
+  font-size: 14px;
+}
+
+.alarm-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alarm-delete-btn {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.alarm-delete-btn:hover {
+  background-color: #1991db;
+}
+
+.alarm-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: #657786;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 10px;
+  }
+
+  .features {
+    margin-left: 70px;
+    padding: 10px;
+  }
+
+  .tweetForm__wrapper {
+    gap: 10px;
+  }
+
+  .tweetForm__profile {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tweet {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .tweet__profile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 50px;
+    min-width: 50px;
+  }
+
+  .features {
+    margin-left: 60px;
+  }
+
+  .tweetForm__inputWrapper--row {
+    flex-direction: column;
+  }
+
+  .tweetForm__submitButton {
+    width: 100%;
+  }
 }

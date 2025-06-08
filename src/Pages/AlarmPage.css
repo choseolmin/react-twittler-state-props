@@ -1,0 +1,88 @@
+.alarm-page {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.alarm-page h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px;
+  border-bottom: 1px solid #eff3f4;
+}
+
+.alarm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: #eff3f4;
+}
+
+.alarm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+.alarm-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.alarm-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.alarm-user-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.alarm-text {
+  color: #0f1419;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.alarm-user {
+  font-weight: 600;
+  color: #0f1419;
+}
+
+.alarm-time {
+  color: #536471;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.alarm-confirm-button {
+  padding: 8px 16px;
+  background-color: #1d9bf0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.alarm-confirm-button:hover {
+  background-color: #1a8cd8;
+}
+
+.no-alarms {
+  padding: 32px 16px;
+  text-align: center;
+  color: #536471;
+  background-color: #f7f9f9;
+  border-radius: 8px;
+  margin: 16px;
+} 

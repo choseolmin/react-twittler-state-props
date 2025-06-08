@@ -1,5 +1,4 @@
 .tweet {
-  display: flex;
   list-style: none;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--main-border-color);
@@ -42,31 +41,64 @@
   margin-left: 0.5rem;
 }
 
-.tweet__userInfo--buttonWrapper > .tweet__deleteButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--button-color);
-  margin-left: 0.5rem;
-  padding: 0.2rem;
-  border-radius: 50px;
-}
-
-.tweet__userInfo--buttonWrapper > .tweet__deleteButton > .far {
-  color: var(--button-text-color);
-  background-color: var(--button-color);
-  font-size: 0.8rem;
-  padding: 0.1rem;
-  border-radius: 50px;
-}
-
-.tweet__userInfo--buttonWrapper > button:hover, 
-.tweet__userInfo--buttonWrapper > button:focus {
-  outline: none;
-  box-shadow: 0 0 3px var(--button-color);
-  background: var(--tweets-component-color);
-}
-
 .tweet__message {
   padding: 0.5rem;
+}
+
+.tweet__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tweet__like-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tweet__like-text {
+  color: #657786;
+  font-size: 14px;
+}
+
+.tweet__like-count {
+  color: #657786;
+  font-size: 14px;
+  min-width: 20px;
+}
+
+.tweet__like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #657786;
+  transition: all 0.2s ease;
+}
+
+.tweet__like-btn:hover {
+  color: #e0245e;
+  transform: scale(1.1);
+}
+
+.tweet__like-btn--active {
+  color: #e0245e !important;
+  animation: heartBeat 0.3s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tweet__like-btn i {
+  font-size: 18px;
 }

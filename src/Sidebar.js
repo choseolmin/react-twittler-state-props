@@ -12,6 +12,10 @@ const Sidebar = () => {
       <Link to="/tweets">
         <i className="far fa-comment-dots"></i>
       </Link>
+      {/* 알림 링크 */}
+      <Link to="/alarm">
+        <i className="far fa-bell"></i>
+      </Link>
       {/* MyPage 링크 */}
       <Link to="/mypage">
         <i className="far fa-user"></i>
