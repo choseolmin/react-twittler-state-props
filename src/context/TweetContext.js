@@ -106,6 +106,10 @@ export const TweetProvider = ({ children }) => {
     );
   };
 
+  const deleteTweet = (tweetId) => {
+    setTweets((prevTweets) => prevTweets.filter((tweet) => tweet.id !== tweetId));
+  };
+
   return (
     <TweetContext.Provider
       value={{
@@ -114,6 +118,7 @@ export const TweetProvider = ({ children }) => {
         toggleLike,
         addReply,
         deleteReply,
+        deleteTweet,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ import { useTweet } from '../context/TweetContext';
 import './Tweets.css';
 
 const Tweets = () => {
-  const { tweets, addTweet, toggleLike, addReply } = useTweet();
+  const { tweets, addTweet, toggleLike, addReply, deleteReply, deleteTweet } = useTweet();
   const [message, setMessage] = useState('');
   const [selectedTweet, setSelectedTweet] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,13 +29,6 @@ const Tweets = () => {
 
   // 사이드바 닫기 핸들러
   const handleSidebarClose = () => {
-    setIsSidebarOpen(false);
-    setSelectedTweet(null);
-  };
-
-  // 트윗 삭제 핸들러
-  const handleDeleteTweet = (id) => {
-    setTweets(tweets.filter(tweet => tweet.id !== id));
     setIsSidebarOpen(false);
     setSelectedTweet(null);
   };
@@ -125,9 +118,10 @@ const Tweets = () => {
         <Sidebar
           tweet={selectedTweet}
           onClose={handleSidebarClose}
-          onDelete={handleDeleteTweet}
+          onDelete={deleteTweet}
           onReply={handleReply}
           onLike={handleLike}
+          onDeleteReply={deleteReply}
         />
       )}
     </div>
