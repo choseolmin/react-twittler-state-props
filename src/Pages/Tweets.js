@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Tweet from '../Components/Tweet';
 import Sidebar from '../Components/Sidebar';
 import { useNotifications } from '../context/NotificationContext';
+import { useTweet } from '../context/TweetContext';
 import './Tweets.css';
-import dummyTweets from '../static/dummyData';
 
 const Tweets = () => {
-  const [tweets, setTweets] = useState(dummyTweets);
+  const { tweets, addTweet, toggleLike, addReply } = useTweet();
   const [message, setMessage] = useState('');
   const [selectedTweet, setSelectedTweet] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -16,18 +16,7 @@ const Tweets = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      const newTweet = {
-        id: Date.now(),
-        username: 'Bob',
-        content: message,
-        createdAt: new Date().toLocaleString(),
-        picture: 'https://randomuser.me/api/portraits/men/98.jpg',
-        isLiked: false,
-        likeCount: 0,
-        replies: []
-      };
-
-      setTweets([newTweet, ...tweets]);
+      addTweet(message);
       setMessage('');
     }
   };
@@ -52,50 +41,24 @@ const Tweets = () => {
   };
 
   // 답글 핸들러
-  const handleReply = (tweetId, reply, replyIdToDelete) => {
-    setTweets(tweets.map(tweet => {
-      if (tweet.id === tweetId) {
-        if (replyIdToDelete) {
-          // 답글 삭제
-          return {
-            ...tweet,
-            replies: tweet.replies.filter(reply => reply.id !== replyIdToDelete)
-          };
-        } else {
-          // 답글 추가
-          return {
-            ...tweet,
-            replies: [...(tweet.replies || []), reply]
-          };
-        }
-      }
-      return tweet;
-    }));
+  const handleReply = (tweetId, reply) => {
+    addReply(tweetId, reply.content);
   };
 
   // 좋아요 핸들러
   const handleLike = (id) => {
-    setTweets(tweets.map(tweet => {
-      if (tweet.id === id) {
-        const isLiked = !tweet.isLiked;
-        const likeCount = isLiked ? (tweet.likeCount || 0) + 1 : (tweet.likeCount || 1) - 1;
-        
-        // 자신의 트윗에 좋아요를 누를 때만 알림 추가
-        if (isLiked && tweet.username === 'Bob') {
-          addNotification({
-            id: Date.now(),
-            type: 'like',
-            user: 'Bob',
-            content: `님이 회원님의 트윗을 좋아합니다.`,
-            time: '방금 전',
-            tweetId: id
-          });
-        }
-        
-        return { ...tweet, isLiked, likeCount };
-      }
-      return tweet;
-    }));
+    toggleLike(id);
+    const tweet = tweets.find(t => t.id === id);
+    if (tweet && !tweet.isLiked && tweet.username === 'Bob') {
+      addNotification({
+        id: Date.now(),
+        type: 'like',
+        user: 'Bob',
+        content: `님이 회원님의 트윗을 좋아합니다.`,
+        time: '방금 전',
+        tweetId: id
+      });
+    }
   };
 
   return (
@@ -131,13 +94,13 @@ const Tweets = () => {
             <li key={tweet.id} className="tweet-item" onClick={() => handleTweetClick(tweet)}>
               <div className="tweet-header">
                 <img
-                  src={tweet.picture}
+                  src={tweet.profileImage}
                   alt={tweet.username}
                   className="tweet-user-image"
                 />
                 <div className="tweet-user-info">
                   <span className="tweet-username">{tweet.username}</span>
-                  <span className="tweet-date">{tweet.createdAt}</span>
+                  <span className="tweet-date">{tweet.date}</span>
                 </div>
               </div>
               <div className="tweet-content">{tweet.content}</div>

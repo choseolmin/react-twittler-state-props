@@ -60,40 +60,38 @@ const MyPage = () => {
           ))}
         </ul>
       );
-    } else {
+    } else if (activeTab === 'replies') {
       return (
         <ul className="mypage__replies">
-          {myReplies.length > 0 ? (
-            myReplies.map((reply) => (
-              <li key={reply.id} className="mypage__reply">
-                <div className="mypage__reply-header">
-                  <span className="mypage__reply-to">
-                    @{reply.parentTweet.username}에게 답글
+          {myReplies.map((reply) => (
+            <li key={reply.id} className="mypage__reply">
+              <div className="mypage__reply-header">
+                <img
+                  src={reply.profileImage}
+                  alt={reply.name}
+                  className="mypage__profile-image"
+                />
+                <div className="mypage__reply-info">
+                  <span className="mypage__name">{reply.name}</span>
+                  <span className="mypage__username">@{reply.username}</span>
+                </div>
+              </div>
+              <p className="mypage__reply-content">{reply.content}</p>
+              <div className="mypage__reply-footer">
+                <span className="mypage__reply-date">{reply.date}</span>
+                <div className="mypage__reply-parent">
+                  <span>답글 작성: </span>
+                  <span className="mypage__reply-parent-content">
+                    {reply.parentTweet.content}
                   </span>
                 </div>
-                <div className="mypage__reply-content">
-                  <div className="mypage__reply-profile">
-                    <img src={reply.profileImage} alt={reply.name} />
-                  </div>
-                  <div className="mypage__reply-details">
-                    <div className="mypage__reply-user">
-                      <span className="mypage__reply-username">{reply.name}</span>
-                      <span className="mypage__reply-date">{reply.date}</span>
-                    </div>
-                    <p className="mypage__reply-text">{reply.content}</p>
-                    <div className="mypage__reply-parent">
-                      <p>@{reply.parentTweet.username}: {reply.parentTweet.content}</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            ))
-          ) : (
-            <div className="mypage__empty">아직 작성한 답글이 없습니다</div>
-          )}
+              </div>
+            </li>
+          ))}
         </ul>
       );
     }
+    return null;
   };
 
   return (
@@ -105,10 +103,10 @@ const MyPage = () => {
       {/* 프로필 정보 */}
       <div className="mypage__profileWrap">
         <div className="mypage__profileImg">
-          <img src={myTweets[0].profileImage} alt="프로필" />
+          <img src={myTweets[0]?.profileImage || "https://picsum.photos/200"} alt="프로필" />
         </div>
         <div className="mypage__profileInfo">
-          <div className="mypage__profileName">{myTweets[0].name}</div>
+          <div className="mypage__profileName">Bob</div>
           <div className="mypage__profileId">@bob</div>
           <div className="mypage__profileBio">안녕하세요! 저는 Bob입니다. 트위터 클론을 사용 중이에요.</div>
           <div className="mypage__profileStats">

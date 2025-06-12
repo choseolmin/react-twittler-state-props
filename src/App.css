@@ -56,8 +56,7 @@ textarea {
 .App {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-color: #fff;
 }
 
 footer {
@@ -68,10 +67,15 @@ footer {
 
 main {
   display: flex;
+  min-height: 100vh;
+}
+
+.features {
   flex: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  margin-left: 60px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
   padding: 0 20px;
 }
 
@@ -108,14 +112,6 @@ main {
   color: var(--default-text-color);
   padding: 0.7rem 0;
   cursor: pointer;
-}
-
-.features {
-  flex: 1;
-  margin-left: 80px;
-  padding: 20px;
-  max-width: 600px;
-  width: 100%;
 }
 
 .tweetForm__container {
@@ -332,32 +328,8 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-  main {
-    padding: 0 10px;
-  }
-
   .features {
-    margin-left: 70px;
-    padding: 10px;
-  }
-
-  .tweetForm__wrapper {
-    gap: 10px;
-  }
-
-  .tweetForm__profile {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tweet {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .tweet__profile {
-    width: 40px;
-    height: 40px;
+    margin-left: 60px;
   }
 }
 
@@ -368,7 +340,7 @@ main {
   }
 
   .features {
-    margin-left: 60px;
+    margin-left: 50px;
   }
 
   .tweetForm__inputWrapper--row {

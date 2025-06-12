@@ -1,11 +1,18 @@
 .tweets-page {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
   background-color: #fff;
   min-height: 100vh;
+  border-right: 1px solid #eff3f4;
+  border-left: 1px solid #eff3f4;
 }
 
 .tweets-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
   padding: 16px;
   border-bottom: 1px solid #eff3f4;
 }
